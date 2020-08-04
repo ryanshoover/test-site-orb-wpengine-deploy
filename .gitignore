@@ -69,6 +69,8 @@ auth.json
 /wp-content/plugins/*
 /wp-content/themes/*
 
+!/wp-content/plugins/local-plugin
+
 # Don't ignore Apple Touch icons
 !apple-touch-icon.png
 !apple-touch-icon-*.png
