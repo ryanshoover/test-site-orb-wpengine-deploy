@@ -1,0 +1,74 @@
+version: 2.1
+
+orbs:
+    wpengine: ryanshoover/wpengine@dev:alpha
+
+workflows:
+    version: 2
+
+    build_test_deploy:
+        jobs:
+            - wpengine/lint:
+                context: orb-test
+
+            - wpengine/codeception:
+                context: orb-test
+
+            - wpengine/build_deploy:
+                context: orb-test
+                name: deploy-development
+                environment: development
+                requires:
+                    - wpengine/lint
+                    - wpengine/codeception
+                filters:
+                    branches:
+                        only: development
+
+            - wpengine/build_deploy:
+                context: orb-test
+                name: deploy-staging
+                environment: staging
+                requires:
+                    - wpengine/lint
+                    - wpengine/codeception
+                filters:
+                    branches:
+                        only: staging
+
+            - wpengine/build_deploy:
+                context: orb-test
+                name: deploy-production
+                environment: production
+                requires:
+                    - wpengine/lint
+                    - wpengine/codeception
+                filters:
+                    branches:
+                        only:
+                            - master
+                            - production
+            - wpengine/build_deploy:
+                context: orb-test
+                name: deploy-feature
+                environment: thenameofmyfeatureinstall
+                requires:
+                    - wpengine/lint
+                    - wpengine/codeception
+                filters:
+                    branches:
+                        only:
+                            - /feat-.*/
+
+    regression:
+        jobs:
+            - wpengine/backstop:
+                  config: tests/_backstop/index.js
+                  context: orb-test
+                  filters:
+                      branches:
+                          only:
+                              - development
+                              - staging
+                              - master
+                              - production

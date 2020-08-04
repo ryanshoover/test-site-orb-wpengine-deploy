@@ -54,6 +54,7 @@ auth.json
 !wp-content/
 
 # Don't ignore tests directory (except backstop test results)
+!/.circleci
 !/tests
 /tests/backstop/results/*
 
