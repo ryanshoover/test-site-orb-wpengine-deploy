@@ -1,23 +1,75 @@
-# ignore everything in the root except the "wp-content" directory.
+## Core files to ignore
+
+# DXT Build files
+.editorconfig
+.nvmrc
+
+# Dependency files
+/vendor/
+/node_modules/
+auth.json
+
+# Backstop result files
+/tests/backstop/results/*
+
+# Mac-specific files
+.DS_Store
+
+# Dev files
+*.codekit
+.svn
+.sass-cache
+
+# Known large file types
+*.sql
+*.hqx
+*.bin
+*.exe
+*.dll
+*.deb
+*.dmg
+*.iso
+*.img
+*.msi
+*.msp
+*.msm
+*.mid
+*.midi
+*.kar
+*.mng
+*.asx
+*.asf
+*.wmv
+*.zip
+*.tar
+*.tgz
+*.gz
+*.mp4
+
+## Files to ignore for a site
+
+# Ignore everything in the root except the "wp-content"
+/*
+!.git/
 !wp-content/
 
-# ignore everything in the "wp-content" directory, except:
-# "mu-plugins", "plugins", "themes" directory
-wp-content/*
-!wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
+# Don't ignore tests directory (except backstop test results)
+!/tests
+/tests/backstop/results/*
 
-# ignore these plugins
-wp-content/plugins/hello.php
+# Ignore everything in the "wp-content" directory,
+# except "plugins", "mu-plugins", and "themes" directories.
+/wp-content/*
+!/wp-content/mu-plugins/
+!/wp-content/plugins/
+!/wp-content/themes/
 
-# ignore specific themes
-wp-content/themes/twenty*/
+# Ignore everything in "plugins", "mu-plugins", and "themes" directories
+/wp-content/mu-plugins/*
+/wp-content/plugins/*
+/wp-content/themes/*
 
-# ignore node dependency directories
-node_modules/
-
-# ignore log files and databases
-*.log
-*.sql
-*.sqlite
+# Don't ignore Apple Touch icons
+!apple-touch-icon.png
+!apple-touch-icon-*.png
+!favicon.ico
