@@ -8,13 +8,20 @@ workflows:
 
     build_test_deploy:
         jobs:
+            - wpengine/build:
+                context: orb-test
+
             - wpengine/lint:
                 context: orb-test
+                requires:
+                    - wpengine/build
 
             - wpengine/codeception:
                 context: orb-test
+                requires:
+                    - wpengine/build
 
-            - wpengine/build_deploy:
+            - wpengine/deploy_site:
                 context: orb-test
                 name: deploy-development
                 environment: development
@@ -25,7 +32,7 @@ workflows:
                     branches:
                         only: development
 
-            - wpengine/build_deploy:
+            - wpengine/deploy_site:
                 context: orb-test
                 name: deploy-staging
                 environment: staging
@@ -36,7 +43,7 @@ workflows:
                     branches:
                         only: staging
 
-            - wpengine/build_deploy:
+            - wpengine/deploy_site:
                 context: orb-test
                 name: deploy-production
                 environment: production
@@ -48,7 +55,8 @@ workflows:
                         only:
                             - master
                             - production
-            - wpengine/build_deploy:
+
+            - wpengine/deploy_site:
                 context: orb-test
                 name: deploy-feature
                 environment: thenameofmyfeatureinstall
