@@ -1,6 +1,6 @@
 const path = require( 'path' );
-const config = require( './backstop_conf/config' );
-const scenarios = require( './backstop_conf/scenarios' );
+const config = require( './config' );
+const scenarios = require( './scenarios' );
 
 module.exports = {
 	id: 'backstop',
