@@ -57,6 +57,7 @@ auth.json
 !/.circleci
 !/tests
 /tests/backstop/results/*
+!/codeception.*
 
 # Ignore everything in the "wp-content" directory,
 # except "plugins", "mu-plugins", and "themes" directories.
