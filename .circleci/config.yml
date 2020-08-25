@@ -23,28 +23,6 @@ workflows:
 
             - wpengine/deploy_site:
                 context: orb-test
-                name: deploy-development
-                environment: development
-                requires:
-                    - wpengine/lint
-                    - wpengine/codeception
-                filters:
-                    branches:
-                        only: development
-
-            - wpengine/deploy_site:
-                context: orb-test
-                name: deploy-staging
-                environment: staging
-                requires:
-                    - wpengine/lint
-                    - wpengine/codeception
-                filters:
-                    branches:
-                        only: staging
-
-            - wpengine/deploy_site:
-                context: orb-test
                 name: deploy-production
                 environment: production
                 requires:
@@ -56,22 +34,10 @@ workflows:
                             - master
                             - production
 
-            - wpengine/deploy_site:
-                context: orb-test
-                name: deploy-feature
-                environment: thenameofmyfeatureinstall
-                requires:
-                    - wpengine/lint
-                    - wpengine/codeception
-                filters:
-                    branches:
-                        only:
-                            - /feat-.*/
-
     regression:
         jobs:
             - wpengine/backstop:
-                  config: tests/_backstop/index.js
+                  config: tests/backstop/index.js
                   context: orb-test
                   filters:
                       branches:

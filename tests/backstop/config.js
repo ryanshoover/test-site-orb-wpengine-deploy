@@ -61,8 +61,8 @@ if ( process.env.CI || false ) {
 }
 
 // Allow config overrides with CLI processArgs.
-config.url = processArgs.url || 'https://dotcomstg.wpengine.com';
-config.refUrl = processArgs.refurl || 'https://wpengine.com';
+config.url = processArgs.url || 'https://orbwpengine.wpengine.com';
+config.refUrl = processArgs.refurl || 'https://orbwpengine.wpengine.com';
 config.reports = processArgs.reports ? processArgs.reports.split( ',' ) : config.reports;
 config.reportsDir = processArgs.reports_dir || config.reportsDir;
 config.debug = processArgs.debug || false;
