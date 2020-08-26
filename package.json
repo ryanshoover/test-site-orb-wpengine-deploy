@@ -6,7 +6,7 @@
 	"repository": "git@github.com:ryanshoover/test-site-orb-wpengine-deploy.git",
 	"author": "Ryan Hoover <ryan.hoover@wpengine.com>",
 	"license": "GPL-3.0-or-later",
-	"dependencies": {
+	"devDependencies": {
 		"@dxt/compiler": "*"
 	},
 	"scripts": {
