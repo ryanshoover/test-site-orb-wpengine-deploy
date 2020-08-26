@@ -1,0 +1,32 @@
+{
+	"name": "ryanshoover/test-site-orb-wpengine-deploy",
+	"description": "Site used solely for testing functional in orb-wpengine-deploy",
+	"type": "project",
+	"license": "GPL3",
+	"authors": [
+		{
+			"name": "Ryan Hoover",
+			"email": "ryan.hoover@wpengine.com"
+		}
+	],
+	"repositories": {
+		"fury": {
+			"type": "composer",
+			"url": "https://php.fury.io/wpedxt/"
+		},
+		"furypersonal": {
+			"type": "composer",
+			"url": "https://php.fury.io/ryanshoover/"
+		}
+	},
+	"require": {
+		"ryanshoover/test-plugin-orb-wpengine-deploy": "^1.0.0",
+		"ryanshoover/test-theme-orb-wpengine-deploy": "^1.0.0"
+	},
+	"require-dev": {
+		"wpengine/dxt-tester": "*"
+	},
+	"scripts": {
+		"lint": "composer dxt:lint"
+	}
+}

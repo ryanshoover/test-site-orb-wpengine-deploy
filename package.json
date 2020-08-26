@@ -1,0 +1,22 @@
+{
+	"name": "test-site-orb-wpengine-deploy",
+	"version": "1.0.0",
+	"description": "Site used solely for testing functional in orb-wpengine-deploy",
+	"main": "index.js",
+	"repository": "git@github.com:ryanshoover/test-site-orb-wpengine-deploy.git",
+	"author": "Ryan Hoover <ryan.hoover@wpengine.com>",
+	"license": "GPL-3.0-or-later",
+	"dependencies": {
+		"@dxt/compiler": "*"
+	},
+	"scripts": {
+		"build": "dxt-compiler build",
+		"lint": "dxt-compiler lint",
+		"clean": "dxt-compiler clean",
+		"watch": "dxt-compiler start",
+		"start": "dxt-compiler start",
+		"css": "dxt-compiler css",
+		"js": "dxt-compiler js",
+		"images": "dxt-compiler images"
+	}
+}

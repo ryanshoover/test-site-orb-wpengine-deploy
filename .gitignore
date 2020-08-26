@@ -1,57 +1,19 @@
 ## Core files to ignore
 
-# DXT Build files
-.editorconfig
-.nvmrc
-
-# Dependency files
-/vendor/
-/node_modules/
-auth.json
-
 # Backstop result files
 /tests/backstop/results/*
 
 # Mac-specific files
 .DS_Store
 
-# Dev files
-*.codekit
-.svn
-.sass-cache
-
-# Known large file types
-*.sql
-*.hqx
-*.bin
-*.exe
-*.dll
-*.deb
-*.dmg
-*.iso
-*.img
-*.msi
-*.msp
-*.msm
-*.mid
-*.midi
-*.kar
-*.mng
-*.asx
-*.asf
-*.wmv
-*.zip
-*.tar
-*.tgz
-*.gz
-*.mp4
-
-## Files to ignore for a site
-
 # Ignore everything in the root except the "wp-content"
 /*
 !.git/
 !wp-content/
+
+!/composer.*
+!/package.json
+!/yarn.lock
 
 # Don't ignore tests directory (except backstop test results)
 !/.circleci
